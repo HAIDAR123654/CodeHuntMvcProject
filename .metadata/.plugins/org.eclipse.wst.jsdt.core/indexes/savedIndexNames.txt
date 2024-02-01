@@ -1,0 +1,12 @@
+INDEX VERSION 1.4+D:\JavaProjectCodeHunt\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1223574300.index
+332177377.index
+3926432272.index
+1972171917.index
+4098463486.index
+3642184534.index
+235159148.index
+2623316035.index
+4271839540.index
+784716319.index
+3274783655.index

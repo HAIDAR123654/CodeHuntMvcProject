@@ -1,0 +1,33 @@
+<%
+   String data = (String)session.getAttribute("login");
+  if(data==null){
+	  response.sendRedirect("adminauth.jsp");
+	  return;
+  }
+%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> Admin Page</title>
+</head>
+<body>
+   <%
+   String user = (String)session.getAttribute("login");
+   %>
+   <h3>Hello <%=user %>!</h3>
+   <a href="read-message.jsp">Read all message</a>
+   
+   <h2><a href="index.jsp">GO TO HOME PAGE</a></h2>
+   
+   <form action="Logout" method="post">
+       <button style="background: blue;
+                 color: black; padding:5px 20px;
+                  border-radius: 5px">Logout</button>
+   </form>
+
+</body>
+</html>

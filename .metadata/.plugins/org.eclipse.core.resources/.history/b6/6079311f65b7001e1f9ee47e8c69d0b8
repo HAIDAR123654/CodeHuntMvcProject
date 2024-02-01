@@ -1,0 +1,38 @@
+package tech.codehunt.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import tech.codehunt.dao.MessageDaoImpl;
+import tech.codehunt.validation.Validation;
+
+@WebServlet("/Message")
+public class Message extends HttpServlet {
+ 
+	private String result;
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String message = request.getParameter("message");
+		
+		result = new Validation().validateMessage(name, email, message);
+		if(result.equals("valid")) {
+			result = new MessageDaoImpl().insert(name, email, message);
+			if(result.equals("saved")) {
+				System.out.println(result);
+			}
+			else {
+				System.out.println("something went wrong..");
+			}
+		}
+		else {
+			System.out.println(result);
+		}
+	}
+
+}

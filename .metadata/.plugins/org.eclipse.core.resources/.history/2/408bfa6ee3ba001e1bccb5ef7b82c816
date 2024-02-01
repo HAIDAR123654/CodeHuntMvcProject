@@ -1,0 +1,28 @@
+package com.begin;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+@WebListener
+public class TestList implements HttpSessionListener {
+
+    public static final Map<String, String> activesessions = new HashMap<>();
+
+    public void sessionCreated(HttpSessionEvent se)  { 
+        System.out.println("inside session created : " + se.getSession().getId());
+        activesessions.put(se.getSession().getId(), null);
+    }
+
+    public void sessionDestroyed(HttpSessionEvent se)  { 
+    	System.out.println("inside session destroy :" +  se.getSession().getId());
+    }
+    
+    public static Map<String, String> getActiveSessions() {
+        return activesessions;
+    }
+	
+}

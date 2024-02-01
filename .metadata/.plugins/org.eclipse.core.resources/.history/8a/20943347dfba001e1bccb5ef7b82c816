@@ -1,0 +1,23 @@
+package com.begin;
+
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+@WebListener
+public class TestList implements HttpSessionListener {
+
+    public TestList() {
+       System.out.println("new user created..");
+    }
+
+    public void sessionCreated(HttpSessionEvent se)  { 
+    	
+        System.out.println("inside session created : " + se.getSession().getId());
+    }
+
+    public void sessionDestroyed(HttpSessionEvent se)  { 
+    	System.out.println("inside session destroy :" +  se.getSession().getId());
+    }
+	
+}
